@@ -1,8 +1,6 @@
-clog
-/yaml-1.0.1.tgz
-/yaml-1.1.0.tgz
-/yaml-1.1.1.tgz
-/yaml-1.2.0.tgz
-/yaml-2.0.0RC8.tgz
-/yaml-2.0.0.tgz
-/yaml-2.0.2.tgz
+BUILD
+BUILDROOT
+MOCK
+RPMS
+SOURCES/*.tgz
+SRPMS
