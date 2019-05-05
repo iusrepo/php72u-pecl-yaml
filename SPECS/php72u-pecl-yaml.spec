@@ -3,7 +3,7 @@
 %global php       php72u
 
 Name:           %{php}-pecl-%{pecl_name}
-Version:        2.0.2
+Version:        2.0.4
 Release:        1.ius%{?dist}
 Summary:        Support for YAML 1.1 serialization using the LibYAML library
 Group:          Development/Languages
@@ -141,6 +141,9 @@ fi
 
 
 %changelog
+* Sat May 4 2019 evitalis <evitalis@users.noreply.github.com> - 2.0.4-1.ius
+- Update to current version
+
 * Wed Apr 25 2018 Carl George <carl@george.computer> - 2.0.2-2.ius
 - Port from Fedora to IUS
 
