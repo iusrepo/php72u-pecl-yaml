@@ -3,10 +3,9 @@
 %global php       php72u
 
 Name:           %{php}-pecl-%{pecl_name}
-Version:        2.0.2
+Version:        2.0.4
 Release:        1%{?dist}
 Summary:        Support for YAML 1.1 serialization using the LibYAML library
-Group:          Development/Languages
 
 License:        MIT
 URL:            https://pecl.php.net/package/%{pecl_name}
@@ -25,27 +24,15 @@ BuildRequires:  %{php}-xml
 Requires:       php(zend-abi) = %{php_zend_api}
 Requires:       php(api) = %{php_core_api}
 
-# provide the stock name
-Provides:       php-pecl-%{pecl_name} = %{version}
-Provides:       php-pecl-%{pecl_name}%{?_isa} = %{version}
-
-# provide the stock and IUS names without pecl
 Provides:       php-%{pecl_name} = %{version}
 Provides:       php-%{pecl_name}%{?_isa} = %{version}
-Provides:       %{php}-%{pecl_name} = %{version}
-Provides:       %{php}-%{pecl_name}%{?_isa} = %{version}
-
-# provide the stock and IUS names in pecl() format
 Provides:       php-pecl(%{pecl_name}) = %{version}
 Provides:       php-pecl(%{pecl_name})%{?_isa} = %{version}
-Provides:       %{php}-pecl(%{pecl_name}) = %{version}
-Provides:       %{php}-pecl(%{pecl_name})%{?_isa} = %{version}
 
-# conflict with the stock name
-Conflicts:      php-pecl-%{pecl_name} < %{version}
-
-%{?filter_provides_in: %filter_provides_in %{php_extdir}/.*\.so$}
-%{?filter_setup}
+# safe replacement
+Provides:       php-pecl-%{pecl_name} = %{version}-%{release}
+Provides:       php-pecl-%{pecl_name}%{?_isa} = %{version}-%{release}
+Conflicts:      php-pecl-%{pecl_name} < %{version}-%{release}
 
 
 %description
@@ -141,6 +128,9 @@ fi
 
 
 %changelog
+* Mon Jun 10 2019 Carl George <carl@george.computer> - 2.0.4-1
+- Latest upstream
+
 * Wed Apr 25 2018 Carl George <carl@george.computer> - 2.0.2-2.ius
 - Port from Fedora to IUS
 
