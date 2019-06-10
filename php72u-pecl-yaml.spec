@@ -12,14 +12,9 @@ URL:            https://pecl.php.net/package/%{pecl_name}
 Source0:        https://pecl.php.net/get/%{pecl_name}-%{version}.tgz
 
 BuildRequires:  %{php}-devel
-BuildRequires:  pear1u
+# build require pear1's dependencies to avoid mismatched php stacks
+BuildRequires:  pear1 %{php}-cli %{php}-common %{php}-xml
 BuildRequires:  libyaml-devel
-
-# explicitly require pear dependencies to avoid conflicts
-BuildRequires:  %{php}-cli
-BuildRequires:  %{php}-common
-BuildRequires:  %{php}-process
-BuildRequires:  %{php}-xml
 
 Requires:       php(zend-abi) = %{php_zend_api}
 Requires:       php(api) = %{php_core_api}
@@ -101,7 +96,7 @@ do install -Dpm 644 $i %{buildroot}%{pecl_docdir}/%{pecl_name}/$i
 done
 
 
-%triggerin -- pear1u
+%triggerin -- pear1
 if [ -x %{__pecl} ]; then
     %{pecl_install} %{pecl_xmldir}/%{pecl_name}.xml >/dev/null || :
 fi
@@ -130,6 +125,7 @@ fi
 %changelog
 * Mon Jun 10 2019 Carl George <carl@george.computer> - 2.0.4-1
 - Latest upstream
+- Build with pear1 instead of pear1u
 
 * Wed Apr 25 2018 Carl George <carl@george.computer> - 2.0.2-2.ius
 - Port from Fedora to IUS
