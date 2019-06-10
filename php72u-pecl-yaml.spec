@@ -4,7 +4,7 @@
 
 Name:           %{php}-pecl-%{pecl_name}
 Version:        2.0.2
-Release:        1.ius%{?dist}
+Release:        1%{?dist}
 Summary:        Support for YAML 1.1 serialization using the LibYAML library
 Group:          Development/Languages
 
