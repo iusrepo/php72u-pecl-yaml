@@ -24,6 +24,10 @@ Provides:       php-%{pecl_name}%{?_isa} = %{version}
 Provides:       php-pecl(%{pecl_name}) = %{version}
 Provides:       php-pecl(%{pecl_name})%{?_isa} = %{version}
 
+# IUS names without pecl
+Provides:       %{php}-%{pecl_name} = %{version}
+Provides:       %{php}-%{pecl_name}%{?_isa} = %{version}
+
 # safe replacement
 Provides:       php-pecl-%{pecl_name} = %{version}-%{release}
 Provides:       php-pecl-%{pecl_name}%{?_isa} = %{version}-%{release}
